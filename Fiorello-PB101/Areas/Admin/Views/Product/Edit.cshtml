@@ -1,0 +1,62 @@
+﻿@model ProductEditVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-5">
+
+     <div class="image">
+    <img src="~/img/@Model.Image" style="width:200px; height:100px " />
+    </div>
+   
+
+    <form method="post" asp-action="Edit" enctype="multipart/form-data">
+
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-normal" asp-for="Name" >
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-normal" asp-for="Description" >
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-normal" asp-for="Price" >
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-10">
+                <select asp-for="CategoryId" asp-items="@ViewBag.categories" class="form-control form-control-normal">
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"> Image</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-normal" asp-for="NewImage" >
+                <span asp-validation-for="NewImage" class="text-danger"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <a class="btn btn-light " asp-action="Index">Cancel</a>
+    </form>
+
+</div>
+
